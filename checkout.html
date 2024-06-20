@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>YOLO | 2in1 Twirl-All-You-Can Frozen Yogurt - Check Out</title>
+    <link rel="icon" type="image-icon" href="wlogo.png">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="checkout.css">
+        
+</head>
+<body>
+    <header id="navbar">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
+        </div>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+
+        <nav class="nav-links">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="menu.html">MENU</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="contactUs">CONTACT US</a></li>
+                <li><a href="home-notReg.html">LOG OUT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div class="addresscontainer">
+            <div class="address">
+                <strong>Address:</strong>
+                <form>
+                    <input type="text" id="addressInput" required>
+                    
+                </form>
+            </div>
+
+            <div class="notes">
+                <strong>Notes:</strong>
+                <form>
+                    <input type="text" placeholder="Optional">
+                </form>
+            </div>
+        </div>
+
+        <div class="ordersummarycontainer">
+            <div class="summary" id="cart-summary-container">
+            </div>
+            <span class="ribbon">ORDER SUMMARY</span>
+        </div>
+
+        <div class="paymentcontainer">
+            <div class="payment">
+                <div class="part1">
+                    <img src="img/gcash.png" alt="gcash" onclick="openImagePopup('img/p1.png')"">
+                </div>
+                <div class="part2">
+                    <img src="img/cash.png" alt="cash">
+                </div>
+                <div class="part3">
+                    <img src="img/bank.png" alt="bank" onclick="openImagePopup('img/p2.png')">
+                </div>
+            </div>
+            <span class="ribbon">PAYMENT METHOD</span>
+        </div>
+
+        <div class="btn">
+            <button id="cobtn" onclick="openPopup()">PLACE ORDER</button>
+            <div class="popup" id="popup">
+                <img src="img/tick.png">
+                <h2>Thank You!</h2>
+                <p>Your order is now being processed</p>
+                <button type="button" onclick="closePopup()">OK</button>
+            </div>
+        </div>
+
+        <div class="alert hide" id="alert">
+            <span class="fas fa-exclamation-circle"></span>
+            <span class="msg">Please enter your address.</span>
+            <span class="close-btn">
+                <span class="fas fa-times"></span>
+            </span>
+        </div>
+
+        <div id="overlay" class="overlay"></div>
+    </div>
+    <script src="checkout.js"></script>
+</body>
+</html>

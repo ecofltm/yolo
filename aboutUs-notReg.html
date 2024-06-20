@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>YOLO | 2in1 Twirl-All-You-Can Frozen Yogurt - Home</title>
+    <link rel="icon" type="image-icon" href="wlogo.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Outfit font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Spicy Rice font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="about.css">
+
+</head>
+
+<body>
+
+    <header id="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="home-notReg.html">HOME</a></li>
+                <li><a href="menu-notReg.html">MENU</a></li>
+                <li><a href="aboutUs-notReg.html">ABOUT US</a></li>
+                <li><a href="contactUs-notReg.html">CONTACT US</a></li>
+                <li><a href="login-signup.html">LOG IN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<img class="aboutus-img" src="aboutus.png">
+
+<h1>ABOUT</h1>
+        <span id="dynamic-word"></span>
+
+<div class="confetti-container" id="confetti-container"></div>
+
+<div class="slide">
+    <div class="textleftside">
+        <p class="a">Your swirl,
+        <br>Your way,
+        <br>Every day!</p>
+        <p class="des">
+            In 2024, YOLO, a vibrant frozen yogurt shop, was founded with a shared passion for delicious, healthy treats. 
+            Inspired by the "You Only Live Once" mantra, it embarked on a mission to create a place where people could indulge in guilt-free delights. 
+            Nestled in the heart of downtown, YOLO quickly became a community favorite, offering a diverse menu of creamy, low-fat frozen yogurts with an array of fresh, 
+            locally sourced toppings. The shop's inviting atmosphere, coupled with its commitment to quality and fun, made YOLO not just a dessert destination, but a lively hub 
+            for social gatherings and sweet memories.
+        </p>
+    </div>
+
+    <div class="imgrightside">
+    <div class="l-realise-slider-card-block">
+        <div class="card-block-wrap">
+            <div class="card b" id="third">
+                <img src="aboutus3.jpg" alt="Image 3">
+            </div>
+            <div class="card c" id="first">
+                <img src="about.jpg" alt="Image 1">
+            </div>
+            <div class="card a1" id="second">
+                <img src="aboutus5.jpg" alt="Image 2">
+            </div>
+            
+
+            <div class="btn-wrap">
+                <a class="btn" id="one"></a>
+                <a class="btn" id="two"></a>
+                <a class="btn focus" id="three"></a>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="abusimg">
+    <img src="abus.png" alt="">
+</div>
+
+<div class="text">
+    <p>YOU ONLY LIVE ONCE</p>
+</div>
+
+    <footer id="footer" class="footer">
+
+        <script src="contactUs-notReg.js"></script>
+        
+        <p class="e"> You Only Live Once, <br>treat yourself with <br><i>yogurt.</i></p>
+        <p class="f"> <b>Reach out to us</b>
+            <br>
+            <br> <small> Ground Floor, Legarda Place, 
+            <br> Legarda St., Sampaloc, Manila 
+        <br>
+            <br> +63 945 649 7170
+            <br>
+            <br> yolo.franchiseph@gmail.com  
+            <br>
+            <br> 10 am - 10 pm  
+            <br>
+            <br>
+            <img src="facebook.png">
+            <img src="instagram.png">
+            <img src="tiktok.png">
+        </small></p>
+        
+        <img src="wlogo.png">
+
+    </footer>
+
+<script>
+        
+//navbar
+            
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+// Rotating words animation with fading effect
+const words = ["US", "YOGURT", "YOLO", "LIFE"];
+        let wordIndex = 0;
+        const dynamicWord = document.getElementById('dynamic-word');
+
+        function rotateWords() {
+            dynamicWord.classList.remove('fade'); // Stop current animation
+            dynamicWord.textContent = words[wordIndex]; // Change text
+            void dynamicWord.offsetWidth; // Trigger reflow to restart animation
+            dynamicWord.classList.add('fade'); // Restart animation
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+        setInterval(rotateWords, 3000);
+
+// snow
+document.addEventListener('DOMContentLoaded', function() {
+    const confettiContainer = document.getElementById('confetti-container');
+    
+    // Number of confetti pieces
+    const confettiCount = 100;
+    
+    // Create confetti
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.animationDelay = `${Math.random() * 5}s`;
+        confettiContainer.appendChild(confetti);
+    }
+});
+
+createConfetti();
+
+//
+document.addEventListener('DOMContentLoaded', function() {
+    const imageContainers = document.querySelectorAll('.image-container');
+
+    function checkScroll() {
+        imageContainers.forEach(imageContainer => {
+            const containerTop = imageContainer.getBoundingClientRect().top;
+            const containerBottom = imageContainer.getBoundingClientRect().bottom;
+
+            // Adjust threshold as needed, currently 20% of viewport height
+            const triggerBottom = window.innerHeight * 0.8;
+
+            if (containerTop < triggerBottom && containerBottom > 0) {
+                imageContainer.classList.add('popped');
+            } else {
+                imageContainer.classList.remove('popped');
+            }
+        });
+    }
+
+    // Initial check on page load
+    checkScroll();
+
+    // Re-check on scroll
+    document.addEventListener('scroll', checkScroll);
+});
+
+
+</script>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Materialize JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+integrity="sha512-8XY5gDBb3QD21V9wGwRJro+ooAH5C9LzWjMqblxIlYaR7YP5lrNnJjZnD2NH8ZzUoVVlGvU1W8TQZtB6v+3DiQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+var shadow = '0 20px 50px rgba(0,34,45,0.5)';
+
+function styles(item_id, x, y, z, opacity, shadow) {
+    $(item_id).css({
+        transform: 'translate3d(' + x + 'px, ' + y + 'px, ' + z + 'px) ',
+        opacity: opacity,
+        'box-shadow': shadow
+    });
+}
+
+$('#one').click(function () {
+    $('#one').addClass('focus');
+    $('#two').removeClass('focus');
+    $('#three').removeClass('focus');
+    styles('#first', 0, 0, 0, 1, shadow);
+    styles('#second', 70, -80, -50, 0.6, 'none');
+    styles('#third', 110, 80, -60, 0.1, 'none');
+});
+
+$('#two').click(function () {
+    $('#one').removeClass('focus');
+    $('#two').addClass('focus');
+    $('#three').removeClass('focus');
+    styles('#first', 110, 80, -60, 0.1, 'none');
+    styles('#second', 0, 0, 0, 1, shadow);
+    styles('#third', 70, -80, -50, 0.6, 'none');
+});
+
+$('#three').click(function () {
+    $('#one').removeClass('focus');
+    $('#two').removeClass('focus');
+    $('#three').addClass('focus');
+    styles('#first', 70, -80, -50, 0.6, 'none');
+    styles('#second', 110, 80, -60, 0.1, 'none');
+    styles('#third', 0, 0, 0, 1, shadow);
+});
+
+</script>
+
+</body>
+
+</html>
